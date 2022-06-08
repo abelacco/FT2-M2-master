@@ -1,1 +1,31 @@
 // Mixins acá
+.flex(@direction, @justify , @aling) {
+    display: flex;
+    flex-direction: @direction;
+    justify-content: @justify;
+    align-items: @aling 
+        
+}
+
+.roundImg(@radius) {
+    border-radius: @radius;
+}
+
+.btn(@color , @background , @border) {
+    font-size: 20px;
+    font-weight: 200;
+    color: @color;
+    background-color: @background ;
+    border-radius: @border;
+    padding: 10px;
+    display: inline-block;
+
+    cursor: pointer;
+
+    &:hover {
+        background-color: @color;
+        color: @background;
+        border: 1px solid black;
+        transition: all 1s ease-in-out;
+    }
+}
