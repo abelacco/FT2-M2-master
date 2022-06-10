@@ -1,16 +1,15 @@
-(function () {
 
-  window.EventEmitter = EventEmitter;
+
 
   // our EventEmitter constructor function
   function EventEmitter () {
     this.subscribers = {};
   }
-
+  
   // To be used like:
   // instanceOfEE.on('touchdown', cheerFn);
   EventEmitter.prototype.on = function (eventName, eventListener) {
-
+    
     // If this instance's subscribers object does not yet
     // have the key matching the given event name, create the
     // key and assign the value of an empty array.
@@ -35,12 +34,13 @@
 
     // Grab the remaining arguments to our emit function.
     var remainingArgs = [].slice.call(arguments, 1);
-
+    
     // For each subscriber, call it with our arguments.
     this.subscribers[eventName].forEach(function (listener) {
         listener.apply(null, remainingArgs);
-    });
-
-  };
-
-})();
+      });
+      
+    };
+    
+    module.exports = EventEmitter;
+    
