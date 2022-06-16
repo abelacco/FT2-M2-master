@@ -1,16 +1,24 @@
 import React, { useState } from "react";
 
+
 export default function SearchBar({onSearch}) {
+  const [input ,setInput] = useState("")
+  const handleChange = (event) => {
+    setInput(event.target.value)
+  }
   return (
     <form onSubmit={(e) => {
       e.preventDefault();
-      onSearch("Cairns");
+      onSearch(input);  
+      setInput("")
     }}>
       <input
         type="text"
         placeholder="Ciudad..."
+        value={input}
+        onChange={handleChange}
       />
-      <input type="submit" value="Agregar" />
+      <button type="submit"> Agregar</button>
     </form>
   );
 }

@@ -5,7 +5,7 @@ export default function Card ({min, max, name, img, onClose, id}) {
     return (
       <div className="card">
         <div id="closeIcon" className="row">
-            <button onClick={onClose} className="btn btn-sm btn-danger">X</button>
+            <button onClick={() => onClose(id)} className="btn btn-sm btn-danger">X</button>
         </div>
         <div className="card-body">
           <h5 className="card-title">{name}</h5>
